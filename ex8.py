@@ -24,10 +24,11 @@ if key_token in obj:
             print(response_after2.status_code, response_after2.text)
             obj = json.loads(response_after2.text)
             key_status2 = "status"
-            if obj[key_status2] == 'Job is ready':
+            key_result2 = "result"
+            if obj[key_status2] == 'Job is ready' and key_result2 in obj:
                 print('Hey, everything is fine! Job is finished')
             else:
-                print('Job is not finished. Expand sleeping time.')
+                print('Job is not finished. Expand sleeping time. OR there is no result key')
         else:
             print('status is not equal to Job is NOT ready')
     else:
